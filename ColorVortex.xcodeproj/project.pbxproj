@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8211856A1F0B02720019EB00 /* Smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 821185691F0B02720019EB00 /* Smoke.sks */; };
+		8211856C1F0D49270019EB00 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8211856B1F0D49270019EB00 /* Ball.swift */; };
 		8289E7131F0AFF000033921D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8289E7121F0AFF000033921D /* AppDelegate.swift */; };
 		8289E7151F0AFF000033921D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8289E7141F0AFF000033921D /* GameScene.sks */; };
 		8289E7171F0AFF000033921D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8289E7161F0AFF000033921D /* Actions.sks */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		821185691F0B02720019EB00 /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Smoke.sks; sourceTree = "<group>"; };
+		8211856B1F0D49270019EB00 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		8289E70F1F0AFF000033921D /* ColorVortex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorVortex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8289E7121F0AFF000033921D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8289E7141F0AFF000033921D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -62,8 +66,10 @@
 			children = (
 				8289E7121F0AFF000033921D /* AppDelegate.swift */,
 				8289E7141F0AFF000033921D /* GameScene.sks */,
-				8289E7161F0AFF000033921D /* Actions.sks */,
 				8289E7181F0AFF000033921D /* GameScene.swift */,
+				8211856B1F0D49270019EB00 /* Ball.swift */,
+				8289E7161F0AFF000033921D /* Actions.sks */,
+				821185691F0B02720019EB00 /* Smoke.sks */,
 				8289E71A1F0AFF000033921D /* GameViewController.swift */,
 				8289E71C1F0AFF000033921D /* Main.storyboard */,
 				8289E71F1F0AFF000033921D /* Assets.xcassets */,
@@ -138,6 +144,7 @@
 				8289E7201F0AFF000033921D /* Assets.xcassets in Resources */,
 				8289E7231F0AFF000033921D /* LaunchScreen.storyboard in Resources */,
 				8289E7171F0AFF000033921D /* Actions.sks in Resources */,
+				8211856A1F0B02720019EB00 /* Smoke.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8211856C1F0D49270019EB00 /* Ball.swift in Sources */,
 				8289E7191F0AFF000033921D /* GameScene.swift in Sources */,
 				8289E71B1F0AFF000033921D /* GameViewController.swift in Sources */,
 				8289E7131F0AFF000033921D /* AppDelegate.swift in Sources */,
@@ -318,6 +326,7 @@
 				8289E7291F0AFF000033921D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
