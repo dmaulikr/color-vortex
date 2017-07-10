@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8211856A1F0B02720019EB00 /* Smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 821185691F0B02720019EB00 /* Smoke.sks */; };
 		8211856C1F0D49270019EB00 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8211856B1F0D49270019EB00 /* Ball.swift */; };
+		826227931F0EB4CF00BCAA3C /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826227921F0EB4CF00BCAA3C /* MSButtonNode.swift */; };
+		826227971F0EEDB400BCAA3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 826227951F0EEDB400BCAA3C /* Assets.xcassets */; };
+		826227991F0EEDF200BCAA3C /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = 826227981F0EEDF200BCAA3C /* Stars.sks */; };
+		8262279B1F0FFBDE00BCAA3C /* HitEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8262279A1F0FFBDE00BCAA3C /* HitEffect.sks */; };
+		827685C01F0EA3220082DEAC /* Cherry Monospace-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 827685BF1F0EA3220082DEAC /* Cherry Monospace-Light.ttf */; };
 		8289E7131F0AFF000033921D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8289E7121F0AFF000033921D /* AppDelegate.swift */; };
 		8289E7151F0AFF000033921D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8289E7141F0AFF000033921D /* GameScene.sks */; };
 		8289E7171F0AFF000033921D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8289E7161F0AFF000033921D /* Actions.sks */; };
@@ -17,21 +21,35 @@
 		8289E71E1F0AFF000033921D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8289E71C1F0AFF000033921D /* Main.storyboard */; };
 		8289E7201F0AFF000033921D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8289E71F1F0AFF000033921D /* Assets.xcassets */; };
 		8289E7231F0AFF000033921D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8289E7211F0AFF000033921D /* LaunchScreen.storyboard */; };
+		8294C68E1F100AEB00F86824 /* Hyperspace.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8294C68D1F100AEB00F86824 /* Hyperspace.wav */; };
+		8294C6901F100CD800F86824 /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8294C68F1F100CD800F86824 /* MainMenu.sks */; };
+		8294C6921F101FCC00F86824 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8294C6911F101FCC00F86824 /* MainMenu.swift */; };
+		8294C6941F10256600F86824 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8294C6931F10256600F86824 /* GameScene2.sks */; };
+		82FCE22A1F0EB06700A7AE41 /* vortex.sks in Resources */ = {isa = PBXBuildFile; fileRef = 82FCE2291F0EB06700A7AE41 /* vortex.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		821185691F0B02720019EB00 /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Smoke.sks; sourceTree = "<group>"; };
 		8211856B1F0D49270019EB00 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		826227921F0EB4CF00BCAA3C /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
+		826227951F0EEDB400BCAA3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		826227981F0EEDF200BCAA3C /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
+		8262279A1F0FFBDE00BCAA3C /* HitEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HitEffect.sks; sourceTree = "<group>"; };
+		827685BF1F0EA3220082DEAC /* Cherry Monospace-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cherry Monospace-Light.ttf"; sourceTree = "<group>"; };
 		8289E70F1F0AFF000033921D /* ColorVortex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorVortex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8289E7121F0AFF000033921D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8289E7141F0AFF000033921D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		8289E7161F0AFF000033921D /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		8289E7181F0AFF000033921D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		8289E7181F0AFF000033921D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GameScene.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8289E71A1F0AFF000033921D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8289E71D1F0AFF000033921D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8289E71F1F0AFF000033921D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8289E7221F0AFF000033921D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8289E7241F0AFF000033921D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8294C68D1F100AEB00F86824 /* Hyperspace.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Hyperspace.wav; sourceTree = "<group>"; };
+		8294C68F1F100CD800F86824 /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
+		8294C6911F101FCC00F86824 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		8294C6931F10256600F86824 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
+		82FCE2291F0EB06700A7AE41 /* vortex.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = vortex.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +66,7 @@
 		8289E7061F0AFF000033921D = {
 			isa = PBXGroup;
 			children = (
+				826227951F0EEDB400BCAA3C /* Assets.xcassets */,
 				8289E7111F0AFF000033921D /* ColorVortex */,
 				8289E7101F0AFF000033921D /* Products */,
 			);
@@ -65,14 +84,22 @@
 			isa = PBXGroup;
 			children = (
 				8289E7121F0AFF000033921D /* AppDelegate.swift */,
+				8294C68F1F100CD800F86824 /* MainMenu.sks */,
+				8294C6911F101FCC00F86824 /* MainMenu.swift */,
 				8289E7141F0AFF000033921D /* GameScene.sks */,
+				8294C6931F10256600F86824 /* GameScene2.sks */,
 				8289E7181F0AFF000033921D /* GameScene.swift */,
+				8262279A1F0FFBDE00BCAA3C /* HitEffect.sks */,
+				826227981F0EEDF200BCAA3C /* Stars.sks */,
 				8211856B1F0D49270019EB00 /* Ball.swift */,
 				8289E7161F0AFF000033921D /* Actions.sks */,
-				821185691F0B02720019EB00 /* Smoke.sks */,
 				8289E71A1F0AFF000033921D /* GameViewController.swift */,
+				8294C68D1F100AEB00F86824 /* Hyperspace.wav */,
+				826227921F0EB4CF00BCAA3C /* MSButtonNode.swift */,
 				8289E71C1F0AFF000033921D /* Main.storyboard */,
+				82FCE2291F0EB06700A7AE41 /* vortex.sks */,
 				8289E71F1F0AFF000033921D /* Assets.xcassets */,
+				827685BF1F0EA3220082DEAC /* Cherry Monospace-Light.ttf */,
 				8289E7211F0AFF000033921D /* LaunchScreen.storyboard */,
 				8289E7241F0AFF000033921D /* Info.plist */,
 			);
@@ -139,12 +166,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8262279B1F0FFBDE00BCAA3C /* HitEffect.sks in Resources */,
+				8294C6901F100CD800F86824 /* MainMenu.sks in Resources */,
 				8289E71E1F0AFF000033921D /* Main.storyboard in Resources */,
+				8294C6941F10256600F86824 /* GameScene2.sks in Resources */,
 				8289E7151F0AFF000033921D /* GameScene.sks in Resources */,
 				8289E7201F0AFF000033921D /* Assets.xcassets in Resources */,
 				8289E7231F0AFF000033921D /* LaunchScreen.storyboard in Resources */,
+				8294C68E1F100AEB00F86824 /* Hyperspace.wav in Resources */,
+				827685C01F0EA3220082DEAC /* Cherry Monospace-Light.ttf in Resources */,
+				82FCE22A1F0EB06700A7AE41 /* vortex.sks in Resources */,
+				826227971F0EEDB400BCAA3C /* Assets.xcassets in Resources */,
 				8289E7171F0AFF000033921D /* Actions.sks in Resources */,
-				8211856A1F0B02720019EB00 /* Smoke.sks in Resources */,
+				826227991F0EEDF200BCAA3C /* Stars.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,9 +190,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8211856C1F0D49270019EB00 /* Ball.swift in Sources */,
+				8294C6921F101FCC00F86824 /* MainMenu.swift in Sources */,
 				8289E7191F0AFF000033921D /* GameScene.swift in Sources */,
 				8289E71B1F0AFF000033921D /* GameViewController.swift in Sources */,
 				8289E7131F0AFF000033921D /* AppDelegate.swift in Sources */,
+				826227931F0EB4CF00BCAA3C /* MSButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CL52AX9555;
 				INFOPLIST_FILE = ColorVortex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -297,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CL52AX9555;
 				INFOPLIST_FILE = ColorVortex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
