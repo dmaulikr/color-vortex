@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8211856C1F0D49270019EB00 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8211856B1F0D49270019EB00 /* Ball.swift */; };
+		822CF6F51F30ED4C00B26D53 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CF6F41F30ED4B00B26D53 /* GoogleMobileAds.framework */; };
+		825353671F2A4D5000B9E944 /* Exo2-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 825353661F2A4D5000B9E944 /* Exo2-ExtraLight.otf */; };
 		826227931F0EB4CF00BCAA3C /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826227921F0EB4CF00BCAA3C /* MSButtonNode.swift */; };
 		826227971F0EEDB400BCAA3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 826227951F0EEDB400BCAA3C /* Assets.xcassets */; };
 		826227991F0EEDF200BCAA3C /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = 826227981F0EEDF200BCAA3C /* Stars.sks */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		8211856B1F0D49270019EB00 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		822CF6F41F30ED4B00B26D53 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		825353661F2A4D5000B9E944 /* Exo2-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo2-ExtraLight.otf"; sourceTree = "<group>"; };
 		826227921F0EB4CF00BCAA3C /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		826227951F0EEDB400BCAA3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		826227981F0EEDF200BCAA3C /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				822CF6F51F30ED4C00B26D53 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +74,7 @@
 				826227951F0EEDB400BCAA3C /* Assets.xcassets */,
 				8289E7111F0AFF000033921D /* ColorVortex */,
 				8289E7101F0AFF000033921D /* Products */,
+				822CF6F41F30ED4B00B26D53 /* GoogleMobileAds.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,22 +90,23 @@
 			isa = PBXGroup;
 			children = (
 				8289E7121F0AFF000033921D /* AppDelegate.swift */,
-				8294C68F1F100CD800F86824 /* MainMenu.sks */,
 				8294C6911F101FCC00F86824 /* MainMenu.swift */,
+				8294C68F1F100CD800F86824 /* MainMenu.sks */,
+				8289E7181F0AFF000033921D /* GameScene.swift */,
 				8289E7141F0AFF000033921D /* GameScene.sks */,
 				8294C6931F10256600F86824 /* GameScene2.sks */,
-				8289E7181F0AFF000033921D /* GameScene.swift */,
 				8262279A1F0FFBDE00BCAA3C /* HitEffect.sks */,
 				826227981F0EEDF200BCAA3C /* Stars.sks */,
+				82FCE2291F0EB06700A7AE41 /* vortex.sks */,
 				8211856B1F0D49270019EB00 /* Ball.swift */,
 				8289E7161F0AFF000033921D /* Actions.sks */,
 				8289E71A1F0AFF000033921D /* GameViewController.swift */,
 				8294C68D1F100AEB00F86824 /* Hyperspace.wav */,
 				826227921F0EB4CF00BCAA3C /* MSButtonNode.swift */,
 				8289E71C1F0AFF000033921D /* Main.storyboard */,
-				82FCE2291F0EB06700A7AE41 /* vortex.sks */,
 				8289E71F1F0AFF000033921D /* Assets.xcassets */,
 				827685BF1F0EA3220082DEAC /* Cherry Monospace-Light.ttf */,
+				825353661F2A4D5000B9E944 /* Exo2-ExtraLight.otf */,
 				8289E7211F0AFF000033921D /* LaunchScreen.storyboard */,
 				8289E7241F0AFF000033921D /* Info.plist */,
 			);
@@ -168,6 +175,7 @@
 			files = (
 				8262279B1F0FFBDE00BCAA3C /* HitEffect.sks in Resources */,
 				8294C6901F100CD800F86824 /* MainMenu.sks in Resources */,
+				825353671F2A4D5000B9E944 /* Exo2-ExtraLight.otf in Resources */,
 				8289E71E1F0AFF000033921D /* Main.storyboard in Resources */,
 				8294C6941F10256600F86824 /* GameScene2.sks in Resources */,
 				8289E7151F0AFF000033921D /* GameScene.sks in Resources */,
@@ -318,9 +326,13 @@
 		8289E7281F0AFF000033921D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CL52AX9555;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ColorVortex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -333,9 +345,13 @@
 		8289E7291F0AFF000033921D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CL52AX9555;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ColorVortex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

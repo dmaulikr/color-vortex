@@ -34,7 +34,7 @@ class Ball : SKShapeNode {
         self.name = "redBall"
         }else if color == UIColor.blue {
             self.name = "blueBall"
-        }else if color == UIColor.yellow || color == UIColor.white {
+        }else if color == UIColor.yellow || color == UIColor.gray {
             self.name = "yellowBall"
         }else if color == UIColor.green{
             self.name = "greenBall"

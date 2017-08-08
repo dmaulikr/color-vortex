@@ -53,9 +53,7 @@ class MainMenu: SKScene {
         scene.colorBlind = colorBool
         scene.scaleMode = .aspectFit
         
-        skView.showsPhysics = true
-        skView.showsDrawCount = true
-        skView.showsFPS = true
+    
         skView.presentScene(scene)
     }
 }

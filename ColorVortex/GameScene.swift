@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 import Foundation
+import GoogleMobileAds
 
 //general function used to calculate the distance between two CGPoints and returns this distance in the form of a CGFloat
 public func calcDistance(_ start: CGPoint, _ end: CGPoint) -> CGFloat {
@@ -17,6 +18,10 @@ public func calcDistance(_ start: CGPoint, _ end: CGPoint) -> CGFloat {
     let dist = sqrt((xDist*xDist) + (yDist*yDist))
     return dist
     
+}
+
+func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
+    return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
 }
 
 //the time deltas used for calculations and incrementing timers respectively also the period of the rotations which totally doesn't work (I think)
@@ -29,12 +34,16 @@ enum GameState {
     case playing, gameOver
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, GADBannerViewDelegate {
+    
+    var firstTimeEver: Bool = true
+    var bannerView: GADBannerView!
     
     //defining all of the nodes in the scene
     var state: GameState = .playing
     var vortex: SKEmitterNode!
-    
+    var minimumRadius = 40
+    var ballSpawnRate = 2.5
     
     //boolean to determine whether the vortex is on
     var vortexOn: Bool = false
@@ -64,6 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var green: SKSpriteNode!
     var scoreLabel: SKLabelNode!
     var tutorialText: SKLabelNode!
+    var tutorialArrow: SKSpriteNode!
     var playArea: SKSpriteNode!
     let playAreaPulse = SKAction(named: "SubtlePulse")
     var score = 0
@@ -80,23 +90,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //initializes all of the nodes and what not
     override func didMove(to view: SKView) {
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        bannerView.frame = CGRect(x: 0, y: view.bounds.height - bannerView.frame.size.height, width: 320, height: 50)
+        self.view?.addSubview(bannerView)
+       // bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111" // FAKE ID
+        bannerView.adUnitID = "ca-app-pub-8233645734871172/8656498030" //REAL ID
+        bannerView.rootViewController = self.view?.window?.rootViewController
+//        let request = GADRequest()
+//        request.testDevices =  [ kGADSimulatorID,
+//            "2077ef9a63d2b398840261c8221a0c9b" ]
+//        
+        let requestActual = GADRequest()
+        bannerView.load(requestActual)
+        bannerView.delegate = self
+
+        
         MainMenuButton = childNode(withName: "//MainMenuButton") as! MSButtonNode
         MainMenuButton.selectedHandler = {
             if let scene = MainMenu(fileNamed: "MainMenu") {
                 
-                
+                self.bannerView.removeFromSuperview()
                 // Present the scene
-                if let view = self.view as! SKView? {
+                if let view = self.view {
                     view.presentScene(scene)
                     
                     view.ignoresSiblingOrder = true
                     
-                    view.showsFPS = true
-                    view.showsNodeCount = true
+                 
+                    
                     
                 }
             }
         }
+        tutorialArrow = childNode(withName: "tutorialArrow") as! SKSpriteNode
         sparkly = SKEmitterNode(fileNamed: "HitEffect.sks")
         playArea = childNode(withName: "playArea") as! SKSpriteNode
         vortex = childNode(withName: "vortex") as! SKEmitterNode
@@ -140,7 +166,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //initially sets the vortex to hidden and disables multitouch
         vortex.isHidden = true
         self.view?.isMultipleTouchEnabled = false
-        
+      
     }
     
     
@@ -148,14 +174,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //will only run this huge block if the game is playing
         if state == .playing {
+            
             restartButton.isHidden = true
             scoreLabel.text = String(score)
-            
+            changeDifficulty()
             
             //turns off tutorial text
             if score == 1 {
                 gameStart = true
                 tutorialText.isHidden = true
+                firstTimeEver = false
+                
+                tutorialArrow.removeFromParent()
             }
             
             //increments the timer once the player scores the first point
@@ -164,7 +194,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 addBallTimer += fixedDelta
                 
                 //every three "seconds" adds a ball assuming that the ball limit hasn't been exceeded then updates the limit and resets the timer
-                if addBallTimer > 2.5 {
+                if addBallTimer > ballSpawnRate{
                     if balls.count < limit {
                     addBall()
                     }
@@ -207,10 +237,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             vortex.isHidden = false
             vortex.alpha = 0
             vortex.run(SKAction.fadeIn(withDuration: 0.5))
+            playArea.removeAllActions()
+            
             playArea.run(SKAction.repeatForever(playAreaPulse!))
             
-            
+          
         }
+        
+      
     }
     
     
@@ -219,11 +253,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             vortex.removeAllActions()
             vortexOn = false
             vortex.run(SKAction.fadeOut(withDuration: 0.3))
-            
             gameStart = true
-            playArea.scale(to: CGSize(width: 320, height: 250))
+            playArea.scale(to: CGSize(width: 320, height: 200))
             playArea.removeAllActions()
-        
+            
         }
     }
     
@@ -231,9 +264,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addBall() {
         var ball:Ball?
         var validSpawn: Bool = false
-        
+        var failIndex = 0
         
         while !validSpawn && balls.count <= limit {
+            if failIndex > 100 {
+                return
+            }
             let decider = arc4random_uniform(4)
             let dirDecider = arc4random_uniform(4)
             switch decider {
@@ -249,7 +285,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 break
             case 2:
                 if colorBlind == true {
-                    ball = Ball(UIColor.white)
+                    ball = Ball(UIColor.gray)
                 }else {
                 ball = Ball(UIColor.yellow)
                 }
@@ -284,11 +320,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if balls.count > 0 {
                 for ballin in balls {
-                    if fabs(calcDistance(testPoint, origin) - calcDistance(ballin.position, origin)) > 20 {
+                    if fabs(calcDistance(testPoint, origin) - calcDistance(ballin.position, origin)) > CGFloat(minimumRadius) && calcDistance(testPoint, origin) > CGFloat(10          ){
                         validSpawn = true
                         ball?.position = testPoint
                     }else {
+                        failIndex += 1
                         validSpawn = false
+                        break
                     }
                 }
             }else {
@@ -306,7 +344,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
+        tutorialArrow?.removeFromParent()
+    
         let contactA = contact.bodyA
         let contactB = contact.bodyB
         let nodeA = contactA.node!
@@ -315,7 +354,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let particleEffect = sparkly.copy() as! SKEmitterNode
         particleEffect.particleColorSequence = nil
         particleEffect.particleColorBlendFactor = 1.0
-        
+        playArea.removeAllActions()
         run(soundEffect)
         
         print(nodeA)
@@ -378,7 +417,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             removeBall(nodeB.position)
         }else if nodeA.name == "yellow" && nodeB.name == "yellowBall" {
             if colorBlind == true {
-                particleEffect.particleColor = .white
+                particleEffect.particleColor = .gray
             }else {
             particleEffect.particleColor = .yellow
             }
@@ -390,7 +429,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             removeBall(nodeB.position)
         }else if nodeA.name == "yellowBall" && nodeB.name == "yellow" {
             if colorBlind == true {
-                particleEffect.particleColor = .white
+                particleEffect.particleColor = .gray
             }else {
                 particleEffect.particleColor = .yellow
             }
@@ -457,19 +496,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
+    func changeDifficulty() {
+        if score % 10 == 0 {
+            let randomRadius = Double(arc4random_uniform(20) + 30)
+            minimumRadius = Int(randomRadius)
+            let randomRate = randomBetweenNumbers(firstNum: 2, secondNum: 3)
+            ballSpawnRate = Double(randomRate)
+        }
+    }
+    
     class func level(colorBlind: Bool) -> GameScene? {
         
         if colorBlind == false {
             guard let scene = GameScene(fileNamed: "GameScene") else {
                 return nil
             }
-            scene.scaleMode = .aspectFill
+            scene.scaleMode = .aspectFit
             return scene
         } else {
             guard let scene = GameScene(fileNamed:"GameScene2") else {
                 return nil
             }
-            scene.scaleMode = .aspectFill
+            scene.scaleMode = .aspectFit
             return scene
             
         

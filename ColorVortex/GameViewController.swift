@@ -20,17 +20,16 @@ class GameViewController: UIViewController {
         if let scene = MainMenu(fileNamed: "MainMenu") {
             
         
-                
-       
+       scene.scaleMode = .aspectFit
                 
                 // Present the scene
                 if let view = self.view as! SKView? {
+                    
                     view.presentScene(scene)
                     
                     view.ignoresSiblingOrder = true
                     
-                    view.showsFPS = true
-                    view.showsNodeCount = true
+               
                 
             }
         }
